@@ -12,6 +12,9 @@ install:
 
 configuration: Release
 
+cache:
+  - packages -> paket.dependencies
+
 build:
   parallel: true
   project: Fake.AzureRm.sln
