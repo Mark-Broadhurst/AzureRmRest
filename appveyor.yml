@@ -17,5 +17,4 @@ build:
   project: Fake.AzureRm.sln
   
 artifacts:
-  - path: bin\Release\*.dll
-  - path: bin\Release\*.pdb
+  - path: bin\ReleaseFake.AzureRm.*
