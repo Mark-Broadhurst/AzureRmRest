@@ -18,3 +18,14 @@ build:
   
 artifacts:
   - path: bin\Release\Fake.AzureRm.*
+
+deploy:
+  release: Fake.AzureRm-v$(appveyor_build_version)
+  provider: GitHub
+  auth_token:
+    secure: AKvncEaWXvKGoLiiYaxf3NvS+ZIlExjXhc9hugLtkig2sot+nSYrxN15M8IjkN3A
+  artifact: bin\Release\Fake.AzureRm.*
+  draft: false
+  prerelease: false
+  on:
+    branch: master
