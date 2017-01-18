@@ -17,4 +17,4 @@ build:
   project: Fake.AzureRm.sln
   
 artifacts:
-  - path: bin\ReleaseFake.AzureRm.*
+  - path: bin\Release\Fake.AzureRm.*
