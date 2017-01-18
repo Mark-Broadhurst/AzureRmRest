@@ -24,7 +24,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: AKvncEaWXvKGoLiiYaxf3NvS+ZIlExjXhc9hugLtkig2sot+nSYrxN15M8IjkN3A
-  artifact: bin\Release\Fake.AzureRm.*
+  artifact: /.*\.(dll|pdb|xml)/
   draft: false
   prerelease: false
   on:
