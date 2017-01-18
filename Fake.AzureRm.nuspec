@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Fake.AzureRm</id>
+    <version>$version$</version>
+    <title>Fake.AzureRm</title>
+    <authors>Mark Broadhurst</authors>
+    <owners>Mark Broadhurst</owners>
+    <licenseUrl>https://github.com/Mark-Broadhurst/Fake.AzureRm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Mark-Broadhurst/Fake.AzureRm</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An unoffical plugin for fake for setting up Azure Infrastructure as part of a deploy</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+  </metadata>
+</package>
