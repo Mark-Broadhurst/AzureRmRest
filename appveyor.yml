@@ -24,7 +24,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: AKvncEaWXvKGoLiiYaxf3NvS+ZIlExjXhc9hugLtkig2sot+nSYrxN15M8IjkN3A
-  artifact: /.*\.(dll|pdb|xml)/
+  artifact: /.*\.(dll|pdb)/
   draft: false
   prerelease: false
   on:
