@@ -17,7 +17,8 @@ build:
   project: Fake.AzureRm.sln
   
 artifacts:
-  - path: bin\Release\Fake.AzureRm.*
+  - path: bin\$(configuration)\Fake.AzureRm.dll
+  - path: bin\$(configuration)\Fake.AzureRm.pdb
 
 deploy:
   release: Fake.AzureRm-v$(appveyor_build_version)
