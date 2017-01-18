@@ -1,0 +1,20 @@
+version: 1.0.{build}
+
+branches:
+  execpt:
+    - gh-pages
+
+skip_tags: true
+
+install:
+  - .paket\paket.exe restore
+
+configuration: Release
+
+build:
+  parallel: true
+  project: Fake.AzureRm.sln
+  
+artifacts:
+  - path: bin\Release\*.dll
+  - path: bin\Release\*.pdb
