@@ -31,7 +31,7 @@ deploy:
     release: Fake.AzureRm-v$(appveyor_build_version)
     auth_token:
       secure: AKvncEaWXvKGoLiiYaxf3NvS+ZIlExjXhc9hugLtkig2sot+nSYrxN15M8IjkN3A
-    artifact: /.*\.(dll|pdb)/
+    artifact: /.*\.(dll|pdb|nupkg)/
     draft: false
     prerelease: false
     on:
