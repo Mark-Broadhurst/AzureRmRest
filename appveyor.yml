@@ -18,6 +18,9 @@ cache:
 build:
   parallel: true
   project: Fake.AzureRm.sln
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
   
 artifacts:
   - path: bin\$(configuration)\Fake.AzureRm.dll
