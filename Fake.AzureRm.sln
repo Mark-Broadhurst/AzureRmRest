@@ -20,6 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docs", ".docs", "{AF70427B
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".examples", ".examples", "{4471AFF3-3ED0-4838-9667-BF2892B8BF76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{E6B235D0-1FBC-459F-9103-54532E3A86F9}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "1.Generate.Secure.Token", ".examples\1.Generate.Secure.Token\1.Generate.Secure.Token.fsproj", "{D64BC63F-BCAF-47AD-828B-1BEEDA568BE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,8 +39,15 @@ Global
 		{91EB99FB-5B3F-4260-8BE0-F4EBC8F09BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91EB99FB-5B3F-4260-8BE0-F4EBC8F09BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91EB99FB-5B3F-4260-8BE0-F4EBC8F09BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64BC63F-BCAF-47AD-828B-1BEEDA568BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64BC63F-BCAF-47AD-828B-1BEEDA568BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64BC63F-BCAF-47AD-828B-1BEEDA568BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64BC63F-BCAF-47AD-828B-1BEEDA568BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D64BC63F-BCAF-47AD-828B-1BEEDA568BE6} = {4471AFF3-3ED0-4838-9667-BF2892B8BF76}
 	EndGlobalSection
 EndGlobal
