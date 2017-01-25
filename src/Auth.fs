@@ -29,16 +29,17 @@ let GetAuth tenantId clientId clientSecret =
             client.PostAsync(uri, content)
             |> Async.AwaitTask
             |> parseResponse
-
+    
     match r with
     | OK text ->
       let json = JObject.Parse(text)
       let token = json.["access_token"].Value<string>()
       return Choice1Of2 (sprintf "Bearer %s" token)
     | err ->
-      return Choice2Of2 err
+      return Choice2Of2 err // GVDM: Stupid n00b question how do you de-reference item1 and item2 from this?
 }    
 
+// GVDM: This is going to trip our dotnet guys up. Redux for n00bs possible? Esp error cases.
 let AsyncChoice choice =
   match choice with
   | Choice1Of2 x -> x
