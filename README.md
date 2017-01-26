@@ -1,6 +1,6 @@
 # Fake.AzureRm
 
-For making deployments to Azure super easy without needing powershell 
+For making deployments to Azure super easy without needing any powershell 
 
 
 ## Setting up security
@@ -19,7 +19,7 @@ Search for `Subscriptions` in the new Azure portal. Pick one. It should look som
 ### Tenant ID
 
 To find your tenant id you can click navigate to the azure portal, search for `active directory`, once you have selected an instance of it, you can navigate
-to the properties on the blade and scroll down and copy the `Directory ID`.
+to the `Properties` on the blade and scroll down and copy the `Directory ID`.
 
 ### Application ID (or service principal)
 
