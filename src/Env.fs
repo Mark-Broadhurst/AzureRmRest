@@ -3,10 +3,10 @@
 open System
 
 type Env(sub, ten, app, sec) = 
-    member this.subscriptionId = sub;
-    member this.tenantId = ten;
-    member this.applicationId = app;
-    member this.secret = sec;
+    member this.SubscriptionId = sub;
+    member this.TenantId = ten;
+    member this.ApplicationId = app;
+    member this.Secret = sec;
 
 let GetEnvironment () =
     let subscriptionId = Environment.GetEnvironmentVariable("AZURERM_SUB_ID")

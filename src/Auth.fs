@@ -12,17 +12,14 @@ open Fake.AzureRm.Rest
 let GetToken (env:Env) =
   async {
     use client = new HttpClient()
-    let uri =  
-      sprintf
-        "https://login.windows.net/%s/oauth2/token"
-        env.tenantId
+    let uri = sprintf "https://login.windows.net/%s/oauth2/token" env.TenantId
 
     let text =
       sprintf
         "resource=%s&client_id=%s&grant_type=client_credentials&client_secret=%s"
         (WebUtility.UrlEncode("https://management.core.windows.net/"))
-        (WebUtility.UrlEncode(env.applicationId))
-        (WebUtility.UrlEncode(env.secret))
+        (WebUtility.UrlEncode(env.ApplicationId))
+        (WebUtility.UrlEncode(env.Secret))
 
     let content = new StringContent(text, Encoding.UTF8, "application/x-www-form-urlencoded")
 

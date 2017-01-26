@@ -4,7 +4,7 @@ open Uri
 open Rest
 open Newtonsoft.Json
 
-let CreateResourceGroup subId token name location =
+let CreateResourceGroup token subId name location =
   ResourceGroupUri subId name
   |> Put token (
     sprintf """
