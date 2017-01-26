@@ -39,8 +39,11 @@ once you have selected the account in Azure AD. An example would be `C6ptRXDfV+f
 For running the examples I would recommend using some environment variables. Take the values collected from above and place them into the following env vars:
 
 `Subscription ID` -> `AZURERM_SUB_ID`
+
 `Tenant ID` -> `AZURERM_TEN_ID`
+
 `Application ID` -> `AZURERM_APP_ID`
+
 `Secure Key` -> `AZURERM_SECRET`
 
 Once these are set, you have to restart visual studio for them to take hold, then head down to the .examples\1.Generate.Secure.Token console and hit F5.
