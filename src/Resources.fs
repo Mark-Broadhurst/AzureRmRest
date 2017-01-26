@@ -15,7 +15,7 @@ let CreateResourceGroup token subId name location =
       location)
   |> ParseResponse
 
-let DeleteResourceGroup subId token name =
+let DeleteResourceGroup token subId name =
   ResourceGroupUri subId name
   |> Delete token
   |> ParseResponse

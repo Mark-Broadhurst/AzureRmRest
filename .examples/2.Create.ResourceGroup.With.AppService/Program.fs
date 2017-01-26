@@ -17,6 +17,9 @@ let main argv =
         CreateResourceGroup token env.SubscriptionId "my-new-resource-group" "northeurope" 
             |> Async.RunSynchronously 
             |> ignore
+        DeleteResourceGroup token env.SubscriptionId "my-new-resource-group"
+            |> Async.RunSynchronously 
+            |> ignore
     | Choice2Of2 (Error(x,y)) -> 
         printf "Fail %s" (x.ToString()) 
             |> ignore
