@@ -3,25 +3,26 @@
 open System.Net.Http
 open System.Text
 open System.Net
-open Fake.AzureRm.Rest
 open Rest
 open Newtonsoft.Json
 open Newtonsoft.Json.Linq
+open Fake.AzureRm.Env
+open Fake.AzureRm.Rest
 
-let GetAuth tenantId clientId clientSecret =
+let GetToken (env:Env) =
   async {
     use client = new HttpClient()
     let uri =  
       sprintf
         "https://login.windows.net/%s/oauth2/token"
-        tenantId
+        env.tenantId
 
     let text =
       sprintf
         "resource=%s&client_id=%s&grant_type=client_credentials&client_secret=%s"
         (WebUtility.UrlEncode("https://management.core.windows.net/"))
-        (WebUtility.UrlEncode(clientId))
-        (WebUtility.UrlEncode(clientSecret))
+        (WebUtility.UrlEncode(env.applicationId))
+        (WebUtility.UrlEncode(env.secret))
 
     let content = new StringContent(text, Encoding.UTF8, "application/x-www-form-urlencoded")
 
@@ -36,10 +37,9 @@ let GetAuth tenantId clientId clientSecret =
       let token = json.["access_token"].Value<string>()
       return Choice1Of2 (sprintf "Bearer %s" token)
     | err ->
-      return Choice2Of2 err // GVDM: Stupid n00b question how do you de-reference item1 and item2 from this?
+      return Choice2Of2 err 
 }    
 
-// GVDM: This is going to trip our dotnet guys up. Redux for n00bs possible? Esp error cases.
 let AsyncChoice choice =
   match choice with
   | Choice1Of2 x -> x

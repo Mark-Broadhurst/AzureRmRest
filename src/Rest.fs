@@ -6,7 +6,7 @@ type Response =
   | OK of string
   | Error of string * string
 
-let makeClient (token: string) =
+let GetClient (token: string) =
   let client = new HttpClient()
   if not (isNull token) then
     client.DefaultRequestHeaders.Add("Authorization", token)
@@ -18,31 +18,31 @@ let makeJson text =
   content
 
 let get token (uri: string) = async {
-  use client = makeClient token
+  use client = GetClient token
   return! client.GetAsync(uri) |> Async.AwaitTask
 }
 
 let getStream token (uri: string) = async {
-  use client = makeClient token
+  use client = GetClient token
   return!
     client.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead)
     |> Async.AwaitTask
 }
 
 let post token data (uri: string) = async {
-  use client = makeClient token
+  use client = GetClient token
   let content = makeJson data
   return! client.PostAsync(uri, content) |> Async.AwaitTask
 }
 
 let put token data (uri: string) = async {
-  use client = makeClient token
+  use client = GetClient token
   let content = makeJson data
   return! client.PutAsync(uri, content) |> Async.AwaitTask
 }
 
 let delete token (uri: string) = async {
-  use client = makeClient token
+  use client = GetClient token
   return! client.DeleteAsync(uri) |> Async.AwaitTask
 }
 

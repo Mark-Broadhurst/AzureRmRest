@@ -51,9 +51,10 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Env.fs" />
     <Compile Include="Rest.fs" />
-    <Compile Include="Uri.fs" />
     <Compile Include="Auth.fs" />
+    <Compile Include="Uri.fs" />
     <Compile Include="Resources.fs" />
     <None Include="paket.references" />
   </ItemGroup>
