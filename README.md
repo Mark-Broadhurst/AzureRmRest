@@ -1,6 +1,6 @@
 # Fake.AzureRm
 
-For making deployments super easy without needing powershell 
+For making deployments to Azure super easy without needing powershell 
 
 
 ## Setting up security
