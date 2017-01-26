@@ -12,41 +12,41 @@ let GetClient (token: string) =
     client.DefaultRequestHeaders.Add("Authorization", token)
   client
 
-let makeJson text =
+let GetJsonContent text =
   let content = new StringContent(text)
   content.Headers.ContentType.MediaType <- "application/json"
   content
 
-let get token (uri: string) = async {
+let Get token (uri: string) = async {
   use client = GetClient token
   return! client.GetAsync(uri) |> Async.AwaitTask
 }
 
-let getStream token (uri: string) = async {
+let GetStream token (uri: string) = async {
   use client = GetClient token
   return!
     client.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead)
     |> Async.AwaitTask
 }
 
-let post token data (uri: string) = async {
+let Post token data (uri: string) = async {
   use client = GetClient token
-  let content = makeJson data
+  let content = GetJsonContent data
   return! client.PostAsync(uri, content) |> Async.AwaitTask
 }
 
-let put token data (uri: string) = async {
+let Put token data (uri: string) = async {
   use client = GetClient token
-  let content = makeJson data
+  let content = GetJsonContent data
   return! client.PutAsync(uri, content) |> Async.AwaitTask
 }
 
-let delete token (uri: string) = async {
+let Delete token (uri: string) = async {
   use client = GetClient token
   return! client.DeleteAsync(uri) |> Async.AwaitTask
 }
 
-let parseResponse (response: Async<HttpResponseMessage>) =
+let ParseResponse (response: Async<HttpResponseMessage>) =
   async {
     let! res = response
     let! content =

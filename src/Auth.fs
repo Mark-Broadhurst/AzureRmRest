@@ -29,7 +29,7 @@ let GetToken (env:Env) =
     let! r =
             client.PostAsync(uri, content)
             |> Async.AwaitTask
-            |> parseResponse
+            |> ParseResponse
     
     match r with
     | OK text ->
