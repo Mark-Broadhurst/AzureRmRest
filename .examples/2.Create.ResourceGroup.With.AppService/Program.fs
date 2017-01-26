@@ -20,7 +20,7 @@ let main argv =
         DeleteResourceGroup token env.SubscriptionId "my-new-resource-group"
             |> Async.RunSynchronously 
             |> ignore
-    | Choice2Of2 (Error(x,y)) -> 
+    | Choice2Of2 (Error(x,y)) ->    
         printf "Fail %s" (x.ToString()) 
             |> ignore
     Console.ReadLine () |> ignore
