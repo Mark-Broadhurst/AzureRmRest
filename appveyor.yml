@@ -23,8 +23,8 @@ build:
   include_nuget_references: true
   
 artifacts:
-  - path: bin\$(configuration)\Fake.AzureRm.dll
-  - path: bin\$(configuration)\Fake.AzureRm.pdb
+  - path: src\bin\$(configuration)\Fake.AzureRm.dll
+  - path: src\bin\$(configuration)\Fake.AzureRm.pdb
 
 deploy:
   - provider: GitHub

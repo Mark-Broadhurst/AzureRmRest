@@ -4,25 +4,25 @@ open Uri
 open Rest
 open Newtonsoft.Json
 
-let CreateResourceGroup subId token name location =
+let CreateResourceGroup token subId name location =
   ResourceGroupUri subId name
-  |> put token (
+  |> Put token (
     sprintf """
 {
   "location": "%s"
 }
 """
       location)
-  |> parseResponse
+  |> ParseResponse
 
-let DeleteResourceGroup subId token name =
+let DeleteResourceGroup token subId name =
   ResourceGroupUri subId name
-  |> delete token
-  |> parseResponse
+  |> Delete token
+  |> ParseResponse
 
 let CreateAppServicePlan subId token group name plan location capacity =
   AppServicePlanUri subId group name
-  |> put token (
+  |> Put token (
     sprintf """
 {
   "location": "%s",
@@ -36,16 +36,16 @@ let CreateAppServicePlan subId token group name plan location capacity =
       plan
       capacity
     )
-  |> parseResponse
+  |> ParseResponse
 
 let DeleteAppServicePlan subId token group name =
   AppServicePlanUri subId group name
-  |> delete token
-  |> parseResponse
+  |> Delete token
+  |> ParseResponse
 
 let CreateAppService subId token group plan name location =
   AppServiceUri subId group name
-  |> put token (
+  |> Put token (
     sprintf """
 {
   "location": "%s",
@@ -55,7 +55,7 @@ let CreateAppService subId token group plan name location =
       location
       plan
     )
-  |> parseResponse
+  |> ParseResponse
 
 let SetAppSettings subId token group name (settings: (string * string) list) =
   sprintf
@@ -63,7 +63,7 @@ let SetAppSettings subId token group name (settings: (string * string) list) =
     subId
     group
     name
-  |> put token (
+  |> Put token (
     let props =
       settings
       |> List.map (fun (key, value) ->
@@ -83,11 +83,11 @@ let SetAppSettings subId token group name (settings: (string * string) list) =
 """
       props
     )
-  |> parseResponse
+  |> ParseResponse
 
 let CreateSqlServer subscriptionId token resourceGroupName serverName username password location =
   SqlServerUri subscriptionId resourceGroupName serverName
-  |> put token ( sprintf """
+  |> Put token ( sprintf """
 {
   "properties": {
     "version": "12.0",
@@ -100,11 +100,11 @@ let CreateSqlServer subscriptionId token resourceGroupName serverName username p
       username
       password
       location)
-  |> parseResponse
+  |> ParseResponse
 
 let CreateSqlDatabase subscriptionId token resourceGroupName serverName databaseName plan location =
   SqlDatabaseUri subscriptionId resourceGroupName serverName databaseName
-  |> put token (sprintf """
+  |> Put token (sprintf """
 {
   "name": "%s",
   "location": "%s",
@@ -116,4 +116,4 @@ let CreateSqlDatabase subscriptionId token resourceGroupName serverName database
   databaseName
   location
   plan)
-  |> parseResponse
+  |> ParseResponse
