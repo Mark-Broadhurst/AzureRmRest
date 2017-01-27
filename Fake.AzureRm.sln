@@ -33,6 +33,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "2.Create.ResourceGroup.With
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "3.Create.ResourceGroup.With.AppService.And.SqlServer", ".examples\3.Create.ResourceGroup.With.AppService.And.SqlServer\3.Create.ResourceGroup.With.AppService.And.SqlServer.fsproj", "{FFBC8F06-B5C4-4DB5-96CA-B399C6D21312}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Artifacts", "Artifacts", "{9EA8246C-8BA1-489C-97C5-425464A73097}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Application.Service", ".examples\Artifacts\Azure.Application.Service\Azure.Application.Service.csproj", "{302A1542-27C5-4C4B-8584-FD86BB018238}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,10 @@ Global
 		{FFBC8F06-B5C4-4DB5-96CA-B399C6D21312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFBC8F06-B5C4-4DB5-96CA-B399C6D21312}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFBC8F06-B5C4-4DB5-96CA-B399C6D21312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302A1542-27C5-4C4B-8584-FD86BB018238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302A1542-27C5-4C4B-8584-FD86BB018238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302A1542-27C5-4C4B-8584-FD86BB018238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302A1542-27C5-4C4B-8584-FD86BB018238}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +71,7 @@ Global
 		{D64BC63F-BCAF-47AD-828B-1BEEDA568BE6} = {4471AFF3-3ED0-4838-9667-BF2892B8BF76}
 		{0FA79CDC-A058-41B1-9343-28D92936B677} = {4471AFF3-3ED0-4838-9667-BF2892B8BF76}
 		{FFBC8F06-B5C4-4DB5-96CA-B399C6D21312} = {4471AFF3-3ED0-4838-9667-BF2892B8BF76}
+		{9EA8246C-8BA1-489C-97C5-425464A73097} = {4471AFF3-3ED0-4838-9667-BF2892B8BF76}
+		{302A1542-27C5-4C4B-8584-FD86BB018238} = {9EA8246C-8BA1-489C-97C5-425464A73097}
 	EndGlobalSection
 EndGlobal

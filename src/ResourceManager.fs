@@ -15,7 +15,7 @@ open Resources
         member this.ClientId = clientId
         member this.ClientSecret = clientSecret
         member this.CreateResourceGroup = (CreateResourceGroup subscriptionId token)
-        member this.CreateAppServicePlan name sku capacity = (CreateAppServicePlan subscriptionId token)
-        member this.CreateAppService planName name = (CreateAppService subscriptionId token)
+        member this.CreateAppServicePlan = (CreateAppServicePlan subscriptionId token)
+        member this.CreateAppService = (CreateAppService subscriptionId token)
         member this.CreateSqlServer serverName username password = (CreateSqlServer subscriptionId token)
         member this.CreateSqlDatabase serverName databaseName sku = (CreateSqlDatabase subscriptionId token)

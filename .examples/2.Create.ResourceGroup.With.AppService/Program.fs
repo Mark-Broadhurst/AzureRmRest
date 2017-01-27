@@ -1,27 +1,19 @@
 ﻿
 open System
-open Newtonsoft.Json
+open Fake.AzureRm
 open Fake.AzureRm.Env
-open Fake.AzureRm.Auth
-open Fake.AzureRm.Rest
-open Fake.AzureRm.Resources
 
 [<EntryPoint>]
 let main argv = 
-//    printfn "%A" argv
-//    let env = GetEnvironment()
-//    let bearerToken = GetToken (env) |> Async.RunSynchronously
-//    match bearerToken with
-//    | Choice1Of2 token -> 
-//        printf "Token=%s" (token.ToString()) 
-//        CreateResourceGroup token env.SubscriptionId "my-new-resource-group" "northeurope" 
-//            |> Async.RunSynchronously 
-//            |> ignore
-//        DeleteResourceGroup token env.SubscriptionId "my-new-resource-group"
-//            |> Async.RunSynchronously 
-//            |> ignore
-//    | Choice2Of2 (Error(x,y)) ->    
-//        printf "Fail %s" (x.ToString()) 
-//            |> ignore
-//    Console.ReadLine () |> ignore
+    let e = GetEnvironment()
+    let r = new ResourceManager (e.SubscriptionId, e.TenantId, e.ApplicationId, e.Secret)
+    let version = 1;
+    let location = "northeurope"
+    let resource = ( sprintf "fake-azurerm-examples-resource-%i" version )
+    let plan = ( sprintf "fake-azurerm-examples-plan-%i" version )
+    let appService = ( sprintf "fake-azurerm-examples-app-service-%i" version )
+    r.CreateResourceGroup resource location |> Async.RunSynchronously |> ignore
+    r.CreateAppServicePlan resource plan "S1" location 1 |> Async.RunSynchronously |> ignore
+    r.CreateAppService resource plan appService location |> Async.RunSynchronously |> ignore
+    // TODO: Figure out how to upload the app service
     0

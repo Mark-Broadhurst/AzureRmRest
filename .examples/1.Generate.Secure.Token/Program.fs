@@ -1,27 +1,14 @@
 ﻿
 open System
-
 open Fake.AzureRm
-
 open Fake.AzureRm.Env
-
-open Fake.AzureRm.Auth
-
-open Fake.AzureRm.Rest
-
-open Fake.AzureRm.Resources
-
-open Newtonsoft.Json
 
 [<EntryPoint>]
 let main argv = 
-    
+    // If you see a bearer token in the console output, then your envrionment variables
+    // are set correctly
     let e = GetEnvironment()
-
-    let r = new ResourceManager (e.SubscriptionId, e.TenantId, e.ApplicationId, (e.Secret + "balls"))
-
-    Console.WriteLine "Created resource manager ... "
-
+    let r = new ResourceManager (e.SubscriptionId, e.TenantId, e.ApplicationId, e.Secret)
+    printf "Created resource manager ... "
     Console.ReadLine () |> ignore
-    
     0
