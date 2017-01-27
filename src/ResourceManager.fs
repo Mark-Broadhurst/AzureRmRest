@@ -6,6 +6,9 @@ open Resources
     type ResourceManager(subscriptionId, tenantId, clientId, clientSecret) = 
         let token = GetAuth tenantId clientId clientSecret
                     |> Async.RunSynchronously
+                    |> (fun x -> 
+                        printf "%A" x
+                        x)
                     |> AsyncChoice
         member this.SubscriptionId = subscriptionId
         member this.TenantId = tenantId
