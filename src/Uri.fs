@@ -1,25 +1,31 @@
 ﻿module Fake.AzureRm.Uri
 
+open System
+
 let ResourceGroupUri subscriptionId name =
   sprintf
     "https://management.azure.com/subscriptions/%s/resourceGroups/%s?api-version=2015-11-01"
     subscriptionId name
+  |> Uri
 
 let AppServicePlanUri subscriptionId resourceGroupName name =
   sprintf
     "https://management.azure.com/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Web/serverfarms/%s?api-version=2015-08-01"
     subscriptionId resourceGroupName name
+  |> Uri
 
 let AppServiceUri subscriptionId resourceGroupName name =
   sprintf
     "https://management.azure.com/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Web/sites/%s?api-version=2015-08-01"
     subscriptionId resourceGroupName name
+  |> Uri
 
 let VfsUri name path =
   sprintf
     "https://%s.scm.azurewebsites.net/api/vfs/%s/"
     name
     path
+  |> Uri
 
 let SqlServerUri subscriptionId resourceGroupName serverName = 
   sprintf 
@@ -27,6 +33,7 @@ let SqlServerUri subscriptionId resourceGroupName serverName =
     subscriptionId
     resourceGroupName
     serverName
+  |> Uri
 
 let SqlDatabaseUri subscriptionId resourceGroupName serverName databaseName = 
   sprintf 
@@ -35,3 +42,13 @@ let SqlDatabaseUri subscriptionId resourceGroupName serverName databaseName =
     resourceGroupName
     serverName
     databaseName
+  |> Uri
+
+let AppSettings subscriptionId resourceGroupName appServiceName = 
+  sprintf
+    "https://management.azure.com/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Web/sites/%s/config/appsettings?api-version=2015-08-01"
+    subscriptionId
+    resourceGroupName
+    appServiceName
+  |> Uri
+    

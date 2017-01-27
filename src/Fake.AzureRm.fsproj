@@ -55,6 +55,7 @@
     <Compile Include="Uri.fs" />
     <Compile Include="Auth.fs" />
     <Compile Include="Resources.fs" />
+    <Compile Include="ResourceManager.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>

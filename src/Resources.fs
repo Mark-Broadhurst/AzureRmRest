@@ -4,26 +4,30 @@ open Uri
 open Rest
 open Newtonsoft.Json
 
+let Restify (uri: System.Uri) httpmethod token json =
+    uri
+    |> httpmethod token
+    |> parseResponse
+
+let RestifyWithContent (uri: System.Uri) httpmethod token json =
+    uri
+    |> httpmethod token json
+    |> parseResponse
+
 let CreateResourceGroup subId token name location =
-  ResourceGroupUri subId name
-  |> put token (
-    sprintf """
+    let json = (sprintf """
 {
   "location": "%s"
 }
 """
       location)
-  |> parseResponse
+    RestifyWithContent (ResourceGroupUri subId name) put token json
 
 let DeleteResourceGroup subId token name =
-  ResourceGroupUri subId name
-  |> delete token
-  |> parseResponse
+    Restify (ResourceGroupUri subId name) delete token
 
 let CreateAppServicePlan subId token group name plan location capacity =
-  AppServicePlanUri subId group name
-  |> put token (
-    sprintf """
+    let json = (sprintf """
 {
   "location": "%s",
   "Sku": {
@@ -34,14 +38,11 @@ let CreateAppServicePlan subId token group name plan location capacity =
 """
       location
       plan
-      capacity
-    )
-  |> parseResponse
+      capacity)
+    RestifyWithContent (AppServicePlanUri subId group name) put token json
 
 let DeleteAppServicePlan subId token group name =
-  AppServicePlanUri subId group name
-  |> delete token
-  |> parseResponse
+  Restify (AppServicePlanUri subId group name) delete token 
 
 let CreateAppService subId token group plan name location =
   AppServiceUri subId group name
@@ -58,12 +59,7 @@ let CreateAppService subId token group plan name location =
   |> parseResponse
 
 let SetAppSettings subId token group name (settings: (string * string) list) =
-  sprintf
-    "https://management.azure.com/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Web/sites/%s/config/appsettings?api-version=2015-08-01"
-    subId
-    group
-    name
-  |> put token (
+  let json = (
     let props =
       settings
       |> List.map (fun (key, value) ->
@@ -83,11 +79,10 @@ let SetAppSettings subId token group name (settings: (string * string) list) =
 """
       props
     )
-  |> parseResponse
+  RestifyWithContent (AppSettings subId group name) put token 
 
 let CreateSqlServer subscriptionId token resourceGroupName serverName username password location =
-  SqlServerUri subscriptionId resourceGroupName serverName
-  |> put token ( sprintf """
+  let json = (sprintf """
 {
   "properties": {
     "version": "12.0",
@@ -100,11 +95,10 @@ let CreateSqlServer subscriptionId token resourceGroupName serverName username p
       username
       password
       location)
-  |> parseResponse
+  RestifyWithContent (SqlServerUri subscriptionId resourceGroupName serverName) put token json
 
 let CreateSqlDatabase subscriptionId token resourceGroupName serverName databaseName plan location =
-  SqlDatabaseUri subscriptionId resourceGroupName serverName databaseName
-  |> put token (sprintf """
+  let json = (sprintf """
 {
   "name": "%s",
   "location": "%s",
@@ -113,7 +107,7 @@ let CreateSqlDatabase subscriptionId token resourceGroupName serverName database
   }
 }
 """
-  databaseName
-  location
-  plan)
-  |> parseResponse
+      databaseName
+      location
+      plan)
+  RestifyWithContent (SqlDatabaseUri subscriptionId resourceGroupName serverName databaseName) put token 
