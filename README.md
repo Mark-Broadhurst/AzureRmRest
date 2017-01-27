@@ -1,4 +1,4 @@
-# Fake.AzureRm [!(https://ci.appveyor.com/api/projects/status/github/Mark-Broadhurst/Fake.AzureRm)
+# Fake.AzureRm [![Inline docs](https://ci.appveyor.com/api/projects/status/github/Mark-Broadhurst/Fake.AzureRm)]
 
 For making deployments to Azure super easy without needing any powershell 
 
