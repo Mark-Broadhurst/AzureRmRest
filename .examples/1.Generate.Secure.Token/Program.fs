@@ -1,6 +1,4 @@
-﻿
-open System
-open Fake.AzureRm
+﻿open Fake.AzureRm
 open Fake.AzureRm.Env
 
 [<EntryPoint>]
@@ -10,5 +8,4 @@ let main argv =
     let e = GetEnvironment()
     let r = new ResourceManager (e.SubscriptionId, e.TenantId, e.ApplicationId, e.Secret)
     printf "Created resource manager ... "
-    Console.ReadLine () |> ignore
     0

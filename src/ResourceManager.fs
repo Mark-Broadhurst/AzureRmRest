@@ -12,8 +12,6 @@ open Resources
                     |> AsyncChoice
         member this.SubscriptionId = subscriptionId
         member this.TenantId = tenantId
-        member this.ClientId = clientId
-        member this.ClientSecret = clientSecret
         member this.CreateResourceGroup = (CreateResourceGroup subscriptionId token)
         member this.CreateAppServicePlan = (CreateAppServicePlan subscriptionId token)
         member this.CreateAppService = (CreateAppService subscriptionId token)

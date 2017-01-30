@@ -1,10 +1,5 @@
-﻿
-open System
-open Newtonsoft.Json
+﻿open Fake.AzureRm
 open Fake.AzureRm.Env
-open Fake.AzureRm.Auth
-open Fake.AzureRm.Rest
-open Fake.AzureRm.Resources
 
 [<EntryPoint>]
 let main argv = 

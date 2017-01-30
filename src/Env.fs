@@ -14,5 +14,3 @@ let GetEnvironment () =
     let clientId = Environment.GetEnvironmentVariable("AZURERM_APP_ID")
     let secret = Environment.GetEnvironmentVariable("AZURERM_SECRET")
     Env(subscriptionId, tenantId, clientId, secret)
-
-

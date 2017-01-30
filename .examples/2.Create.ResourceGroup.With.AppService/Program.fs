@@ -1,6 +1,4 @@
-﻿
-open System
-open Fake.AzureRm
+﻿open Fake.AzureRm
 open Fake.AzureRm.Env
 
 [<EntryPoint>]
