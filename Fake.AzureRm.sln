@@ -5,9 +5,24 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fake.AzureRm", "src\Fake.AzureRm.fsproj", "{91EB99FB-5B3F-4260-8BE0-F4EBC8F09BDB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9EFFDAE0-0F74-45D3-AF61-FC0CA25D132C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{9EFFDAE0-0F74-45D3-AF61-FC0CA25D132C}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".license", ".license", "{ECF292AB-AA08-481A-B856-EC6B20981CEC}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docs", ".docs", "{AF70427B-767D-4D64-8CC8-D923619C48BA}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{E6B235D0-1FBC-459F-9103-54532E3A86F9}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 	EndProjectSection
 EndProject
 Global

@@ -3,18 +3,16 @@
 open System.Net.Http
 open System.Text
 open System.Net
-open Fake.AzureRm.Rest
 open Rest
 open Newtonsoft.Json
 open Newtonsoft.Json.Linq
+open Fake.AzureRm.Env
+open Fake.AzureRm.Rest
 
 let GetAuth tenantId clientId clientSecret =
   async {
     use client = new HttpClient()
-    let uri =  
-      sprintf
-        "https://login.windows.net/%s/oauth2/token"
-        tenantId
+    let uri = sprintf "https://login.windows.net/%s/oauth2/token" tenantId
 
     let text =
       sprintf
@@ -29,14 +27,14 @@ let GetAuth tenantId clientId clientSecret =
             client.PostAsync(uri, content)
             |> Async.AwaitTask
             |> parseResponse
-
+    
     match r with
     | OK text ->
       let json = JObject.Parse(text)
       let token = json.["access_token"].Value<string>()
       return Choice1Of2 (sprintf "Bearer %s" token)
     | err ->
-      return Choice2Of2 err
+      return Choice2Of2 err 
 }    
 
 let AsyncChoice choice =
