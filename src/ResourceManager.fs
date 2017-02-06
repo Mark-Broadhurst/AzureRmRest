@@ -10,10 +10,10 @@ open Resources
                         printf "%A" x
                         x)
                     |> AsyncChoice
-        member this.SubscriptionId = subscriptionId
-        member this.TenantId = tenantId
-        member this.CreateResourceGroup = (CreateResourceGroup subscriptionId token)
-        member this.CreateAppServicePlan = (CreateAppServicePlan subscriptionId token)
-        member this.CreateAppService = (CreateAppService subscriptionId token)
-        member this.CreateSqlServer serverName username password = (CreateSqlServer subscriptionId token)
-        member this.CreateSqlDatabase serverName databaseName sku = (CreateSqlDatabase subscriptionId token)
+        member x.SubscriptionId = subscriptionId
+        member x.TenantId = tenantId
+        member x.CreateResourceGroup = (CreateResourceGroup subscriptionId token)
+        member x.CreateAppServicePlan = (CreateAppServicePlan subscriptionId token)
+        member x.CreateAppService = (CreateAppService subscriptionId token)
+        member x.CreateSqlServer = (CreateSqlServer subscriptionId token)
+        member x.CreateSqlDatabase = (CreateSqlDatabase subscriptionId token)

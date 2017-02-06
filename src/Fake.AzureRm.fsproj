@@ -55,7 +55,9 @@
     <Compile Include="Rest.fs" />
     <Compile Include="Auth.fs" />
     <Compile Include="Uri.fs" />
+    <Compile Include="AzureParameters.fs" />
     <Compile Include="Resources.fs" />
+    <Compile Include="ResourceManager.fsi" />
     <Compile Include="ResourceManager.fs" />
     <None Include="paket.references" />
   </ItemGroup>

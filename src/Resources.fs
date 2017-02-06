@@ -4,7 +4,7 @@ open Uri
 open Rest
 open Newtonsoft.Json
 
-let Restify (uri: System.Uri) httpmethod token json =
+let Restify (uri: System.Uri) httpmethod token =
     uri
     |> httpmethod token
     |> parseResponse
@@ -14,10 +14,10 @@ let RestifyWithContent (uri: System.Uri) httpmethod token json =
     |> httpmethod token json
     |> parseResponse
 
-let CreateResourceGroup subId token name location =
+let CreateResourceGroup subId token name (location: Location) =
     let json = (sprintf """
 {
-  "location": "%s"
+  "location": "%A"
 }
 """
       location)
@@ -26,12 +26,12 @@ let CreateResourceGroup subId token name location =
 let DeleteResourceGroup subId token name =
     Restify (ResourceGroupUri subId name) delete token
 
-let CreateAppServicePlan subId token group name plan location capacity =
+let CreateAppServicePlan subId token group name (plan : WebAppServiceSku) (location: Location) capacity =
     let json = (sprintf """
 {
-  "location": "%s",
+  "location": "%A",
   "Sku": {
-    "Name": "%s",
+    "Name": "%A",
     "Capacity": %d
   }
 }
@@ -44,12 +44,12 @@ let CreateAppServicePlan subId token group name plan location capacity =
 let DeleteAppServicePlan subId token group name =
   Restify (AppServicePlanUri subId group name) delete token 
 
-let CreateAppService subId token group plan name location =
+let CreateAppService subId token group plan name (location: Location) =
   AppServiceUri subId group name
   |> put token (
     sprintf """
 {
-  "location": "%s",
+  "location": "%A",
   "properties": { "serverFarmId": "%s" }
 }
 """
@@ -81,7 +81,7 @@ let SetAppSettings subId token group name (settings: (string * string) list) =
     )
   RestifyWithContent (AppSettings subId group name) put token 
 
-let CreateSqlServer subscriptionId token resourceGroupName serverName username password location =
+let CreateSqlServer subscriptionId token resourceGroupName serverName username password (location: Location) =
   let json = (sprintf """
 {
   "properties": {
@@ -89,7 +89,7 @@ let CreateSqlServer subscriptionId token resourceGroupName serverName username p
     "administratorLogin": "%s",
     "administratorLoginPassword": "%s"
   },
-  "location": "%s"
+  "location": "%A"
 }  
 """
       username
@@ -97,13 +97,13 @@ let CreateSqlServer subscriptionId token resourceGroupName serverName username p
       location)
   RestifyWithContent (SqlServerUri subscriptionId resourceGroupName serverName) put token json
 
-let CreateSqlDatabase subscriptionId token resourceGroupName serverName databaseName plan location =
+let CreateSqlDatabase subscriptionId token resourceGroupName serverName databaseName (plan: DatabaseSku) (location: Location) =
   let json = (sprintf """
 {
   "name": "%s",
-  "location": "%s",
+  "location": "%A",
   "properties":{
-    "requestedServiceObjectiveName": "%s"
+    "requestedServiceObjectiveName": "%A"
   }
 }
 """

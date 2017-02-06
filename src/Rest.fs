@@ -1,4 +1,5 @@
-﻿module Fake.AzureRm.Rest
+﻿[<AutoOpen>]
+module Fake.AzureRm.Rest
 
 open System
 open System.Net.Http
