@@ -110,4 +110,4 @@ let CreateSqlDatabase subscriptionId token resourceGroupName serverName database
       databaseName
       location
       plan)
-  RestifyWithContent (SqlDatabaseUri subscriptionId resourceGroupName serverName databaseName) put token 
+  RestifyWithContent (SqlDatabaseUri subscriptionId resourceGroupName serverName databaseName) put token json

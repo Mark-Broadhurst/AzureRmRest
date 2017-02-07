@@ -60,6 +60,8 @@
     <Compile Include="ResourceManager.fsi" />
     <Compile Include="ResourceManager.fs" />
     <None Include="paket.references" />
+    <None Include="Scripts\load-references-debug.fsx" />
+    <None Include="Scripts\load-project-debug.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

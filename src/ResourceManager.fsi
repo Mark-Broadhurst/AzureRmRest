@@ -7,4 +7,4 @@
         member CreateAppServicePlan : (string -> string -> WebAppServiceSku -> Location -> int -> Async<Response>)
         member CreateAppService : (string -> string -> string -> Location -> Async<Response>)
         member CreateSqlServer : (string -> string -> string -> string -> Location -> Async<Response>)
-        member CreateSqlDatabase : (string -> string -> string -> DatabaseSku -> Location -> string -> Async<Response>)
+        member CreateSqlDatabase : (string -> string -> string -> DatabaseSku -> Location -> Async<Response>)
