@@ -1,12 +1,9 @@
-﻿module Fake.AzureRm.Auth
+﻿module internal Fake.AzureRm.Auth
 
 open System.Net.Http
 open System.Text
 open System.Net
-open Rest
-open Newtonsoft.Json
 open Newtonsoft.Json.Linq
-open Fake.AzureRm.Env
 open Fake.AzureRm.Rest
 
 let GetAuth tenantId clientId clientSecret =

@@ -1,4 +1,4 @@
-﻿module Fake.AzureRm.Uri
+﻿module internal Fake.AzureRm.Uri
 
 open System
 

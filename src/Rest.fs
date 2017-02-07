@@ -1,12 +1,7 @@
-﻿[<AutoOpen>]
-module Fake.AzureRm.Rest
+﻿module internal Fake.AzureRm.Rest
 
 open System
 open System.Net.Http
-
-type Response =
-  | OK of string
-  | Error of string * string
 
 let parseResponse (response: Async<HttpResponseMessage>) =
   async {

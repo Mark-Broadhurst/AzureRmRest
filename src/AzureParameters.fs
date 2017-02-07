@@ -1,6 +1,10 @@
 ﻿[<AutoOpen>]
 module Fake.AzureRm.AzureParameters
 
+type Response =
+  | OK of string
+  | Error of string * string
+
 type AuthToken = AuthToken of string
 
 type Location = 
