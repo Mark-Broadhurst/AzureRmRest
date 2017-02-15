@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
-    <id>Fake.AzureRm</id>
+    <id>AzureRmRest</id>
     <version>$version$</version>
-    <title>Fake.AzureRm</title>
+    <title>AzureRmRest</title>
     <authors>Mark Broadhurst</authors>
     <owners>Mark Broadhurst</owners>
     <licenseUrl>https://github.com/Mark-Broadhurst/Fake.AzureRm/blob/master/LICENSE</licenseUrl>

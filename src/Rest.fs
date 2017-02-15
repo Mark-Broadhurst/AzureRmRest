@@ -1,4 +1,4 @@
-﻿module internal Fake.AzureRm.Rest
+﻿module internal AzureRmRest.Rest
 
 open System
 open System.Net.Http
