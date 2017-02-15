@@ -1,4 +1,4 @@
-﻿module internal AzureRmRest.Resources
+﻿module internal Fake.AzureRm.Resources
 
 open Uri
 open Rest

@@ -1,4 +1,4 @@
-﻿namespace AzureRmRest
+﻿namespace Fake.AzureRm
     type ResourceManager = 
         new : subscriptionId : string * tenantId : string * clientId : string * clientSecret : string -> ResourceManager
         member SubscriptionId : string

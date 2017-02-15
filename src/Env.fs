@@ -1,19 +1,16 @@
-﻿module AzureRmRest.Env
+﻿module Fake.AzureRm.Env
 
 open System
 
-type Env = 
-    {
-       SubscriptionId:string
-       TenantId:string
-       ApplicationId:string
-       Secret:string
-    }
+type Env(sub, ten, app, sec) = 
+    member x.SubscriptionId = sub;
+    member x.TenantId = ten;
+    member x.ApplicationId = app;
+    member x.Secret = sec;
 
 let GetEnvironment () =
-    {
-        SubscriptionId = Environment.GetEnvironmentVariable("AZURERM_SUB_ID")
-        TenantId = Environment.GetEnvironmentVariable("AZURERM_TEN_ID")
-        ApplicationId = Environment.GetEnvironmentVariable("AZURERM_APP_ID")
-        Secret = Environment.GetEnvironmentVariable("AZURERM_SECRET")
-    }
+    let subscriptionId = Environment.GetEnvironmentVariable("AZURERM_SUB_ID")
+    let tenantId = Environment.GetEnvironmentVariable("AZURERM_TEN_ID")
+    let clientId = Environment.GetEnvironmentVariable("AZURERM_APP_ID")
+    let secret = Environment.GetEnvironmentVariable("AZURERM_SECRET")
+    Env(subscriptionId, tenantId, clientId, secret)

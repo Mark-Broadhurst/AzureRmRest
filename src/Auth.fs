@@ -1,15 +1,15 @@
-﻿module internal AzureRmRest.Auth
+﻿module internal Fake.AzureRm.Auth
 
 open System.Net.Http
 open System.Text
 open System.Net
 open Newtonsoft.Json.Linq
-open AzureRmRest.Rest
+open Fake.AzureRm.Rest
 
 let GetAuth tenantId clientId clientSecret =
   async {
+    use client = new HttpClient()
     let uri = sprintf "https://login.windows.net/%s/oauth2/token" tenantId
-    let request = WebRequest.CreateHttp(uri)
 
     let text =
       sprintf
@@ -20,11 +20,8 @@ let GetAuth tenantId clientId clientSecret =
 
     let content = new StringContent(text, Encoding.UTF8, "application/x-www-form-urlencoded")
 
-    request.Method <- "POST"
-    request.
-
     let! r =
-            request.PostAsync(uri, content)
+            client.PostAsync(uri, content)
             |> Async.AwaitTask
             |> parseResponse
     

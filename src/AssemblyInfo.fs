@@ -1,14 +1,14 @@
-﻿namespace AzureRmRest.AssemblyInfo
+﻿namespace Fake.AzureRm.AssemblyInfo
 
 open System.Reflection
 open System.Runtime.CompilerServices
 open System.Runtime.InteropServices
 
-[<assembly: AssemblyTitle("AzureRmRest")>]
+[<assembly: AssemblyTitle("Fake.AzureRm")>]
 [<assembly: AssemblyDescription("")>]
 [<assembly: AssemblyConfiguration("")>]
 [<assembly: AssemblyCompany("")>]
-[<assembly: AssemblyProduct("AzureRmRest")>]
+[<assembly: AssemblyProduct("Fake.AzureRm")>]
 [<assembly: AssemblyCopyright("Copyright ©  2017")>]
 [<assembly: AssemblyTrademark("")>]
 [<assembly: AssemblyCulture("")>]

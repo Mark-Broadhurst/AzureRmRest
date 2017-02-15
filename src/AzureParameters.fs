@@ -1,5 +1,5 @@
 ﻿[<AutoOpen>]
-module AzureRmRest.AzureParameters
+module Fake.AzureRm.AzureParameters
 
 type Response =
   | OK of string

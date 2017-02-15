@@ -1,4 +1,4 @@
-namespace AzureRmRest
+namespace Fake.AzureRm
 
 open Auth
 open Resources

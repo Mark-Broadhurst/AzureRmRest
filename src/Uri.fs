@@ -1,4 +1,4 @@
-﻿module internal AzureRmRest.Uri
+﻿module internal Fake.AzureRm.Uri
 
 open System
 

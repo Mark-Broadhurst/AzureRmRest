@@ -24,18 +24,18 @@ cache:
 
 build:
   parallel: true
-  project: AzureRmRest.sln
+  project: Fake.AzureRm.sln
   publish_nuget: true
   publish_nuget_symbols: true
   include_nuget_references: true
   
 artifacts:
-  - path: src\bin\$(configuration)\AzureRmRest.dll
-  - path: src\bin\$(configuration)\AzureRmRest.pdb
+  - path: src\bin\$(configuration)\Fake.AzureRm.dll
+  - path: src\bin\$(configuration)\Fake.AzureRm.pdb
 
 deploy:
   - provider: GitHub
-    release: AzureRmRest-v$(appveyor_build_version)
+    release: Fake.AzureRm-v$(appveyor_build_version)
     auth_token:
       secure: AKvncEaWXvKGoLiiYaxf3NvS+ZIlExjXhc9hugLtkig2sot+nSYrxN15M8IjkN3A
     artifact: /.*\.(dll|pdb|nupkg)/
