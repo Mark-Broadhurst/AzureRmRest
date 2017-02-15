@@ -1,4 +1,4 @@
-﻿namespace Fake.AzureRm.AssemblyInfo
+﻿namespace AzureRmRest.AssemblyInfo
 
 open System.Reflection
 open System.Runtime.CompilerServices
