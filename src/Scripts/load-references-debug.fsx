@@ -4,4 +4,4 @@
 #r "System.dll"
 #r "System.Net.Http.dll"
 #r "System.Numerics.dll"
-#r "../../../../Program Files/Microsoft SDKs/Azure/.NET SDK/v2.9/bin/plugins/Diagnostics/Newtonsoft.Json.dll"
+#r "../../packages/Newtonsoft.Json/lib/net45/Newtonsoft.Json.dll"
