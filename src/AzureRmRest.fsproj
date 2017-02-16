@@ -7,12 +7,12 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>91eb99fb-5b3f-4260-8be0-f4ebc8f09bdb</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Fake.AzureRm</RootNamespace>
-    <AssemblyName>Fake.AzureRm</AssemblyName>
+    <RootNamespace>AzureRmRest</RootNamespace>
+    <AssemblyName>AzureRmRest</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Name>Fake.AzureRm</Name>
+    <Name>AzureRmRest</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +22,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\Fake.AzureRm.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\AzureRmRest.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,7 +31,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\Fake.AzureRm.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\AzureRmRest.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
