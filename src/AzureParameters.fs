@@ -1,6 +1,8 @@
 ﻿[<AutoOpen>]
 module AzureRmRest.AzureParameters
 
+type Credentials = { Username: string; Password: string}
+
 type Response =
   | OK of string
   | Error of string * string

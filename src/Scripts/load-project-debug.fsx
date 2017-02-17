@@ -8,5 +8,4 @@
       "../Auth.fs"
       "../Uri.fs"
       "../Resources.fs"
-      "../ResourceManager.fsi"
       "../ResourceManager.fs"

@@ -17,3 +17,4 @@ open Resources
         member x.CreateAppService = (CreateAppService subscriptionId token)
         member x.CreateSqlServer = (CreateSqlServer subscriptionId token)
         member x.CreateSqlDatabase = (CreateSqlDatabase subscriptionId token)
+        member x.GetPublishCredentials = (GetPublishCredentials subscriptionId token)

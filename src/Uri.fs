@@ -51,4 +51,11 @@ let AppSettings subscriptionId resourceGroupName appServiceName =
     resourceGroupName
     appServiceName
   |> Uri
-    
+
+let PublishCredentials subscriptionId resourceGroupName appServiceName = 
+  sprintf
+    "https://management.azure.com/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Web/sites/%s/config/publishingcredentials/list?api-version=2015-08-01"
+    subscriptionId
+    resourceGroupName
+    appServiceName
+  |> Uri

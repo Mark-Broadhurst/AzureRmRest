@@ -3,6 +3,7 @@
 open Uri
 open Rest
 open Newtonsoft.Json
+open Newtonsoft.Json.Linq
 
 let Restify (uri: System.Uri) httpmethod token =
     uri
@@ -111,3 +112,11 @@ let CreateSqlDatabase subscriptionId token resourceGroupName serverName database
       location
       plan)
   RestifyWithContent (SqlDatabaseUri subscriptionId resourceGroupName serverName databaseName) put token json
+
+let GetPublishCredentials subscriptionId token resourceGroupName siteName = 
+  let o = RestifyWithContent (PublishCredentials subscriptionId resourceGroupName siteName) post token ""
+          |> Async.RunSynchronously
+          |> fun x -> match x with
+                        | OK(x) -> (JObject.Parse x)
+                        | Error(x,y) -> failwithf "Response: %s, Message: %s" x y
+  {Username=o.["properties"].["publishingUserName"].ToString(); Password=o.["properties"].["publishingPassword"].ToString()}
