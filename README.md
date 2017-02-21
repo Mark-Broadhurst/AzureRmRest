@@ -1,6 +1,9 @@
-# Fake.AzureRm 
+# AzureRmRest
 
 [![Build status](https://ci.appveyor.com/api/projects/status/tpo1ex6acpb5e9tx/branch/master?svg=true)](https://ci.appveyor.com/project/Mark-Broadhurst/azurermrest/branch/master)
+
+[![Build history](https://buildstats.info/appveyor/chart/mark-broadhurst/azurermrest)](https://ci.appveyor.com/project/mark-broadhurst/azurermrest/history)
+
 
 For making deployments to Azure super easy without needing any powershell 
 
