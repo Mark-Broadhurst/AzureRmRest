@@ -59,3 +59,11 @@ let PublishCredentials subscriptionId resourceGroupName appServiceName =
     resourceGroupName
     appServiceName
   |> Uri
+
+let ApplicationInsightsUri subscriptionId resourceGroupname instanceName =
+  sprintf 
+    "https://management.azure.com/subscriptions/%s/resourceGroups/%s/providers/microsoft.insights/components/%s?api-version=2015-05-01"
+    subscriptionId
+    resourceGroupname
+    instanceName
+  |> Uri

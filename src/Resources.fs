@@ -120,3 +120,18 @@ let GetPublishCredentials subscriptionId token resourceGroupName siteName =
                         | OK(x) -> (JObject.Parse x)
                         | Error(x,y) -> failwithf "Response: %s, Message: %s" x y
   {Username=o.["properties"].["publishingUserName"].ToString(); Password=o.["properties"].["publishingPassword"].ToString()}
+
+let CreateApplicationInsights subscriptionId token resourceGroupName instanceName (location :Location) = 
+  let json = (sprintf """
+{
+    "name": "%s",
+    "location": "%A",
+    "properties": {
+        "Ver":"v2"
+    }
+}
+    """
+    instanceName
+    location)
+  RestifyWithContent (ApplicationInsightsUri subscriptionId resourceGroupName instanceName) put token json
+            
